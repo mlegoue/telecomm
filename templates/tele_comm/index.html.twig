@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TeleCommController!{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block body %}
+    <section>
+        {% for event in events %}
+            <article>
+                <h2>{{event.name}}</h2>
+                {% if (event.online == 1) %}
+                    <span class="badge badge-success">Accepté</span>
+                {% else %}
+                    <span class="badge badge-danger">En cours de vérification</span>
+                {% endif %}
+                <div class="metadata">
+                    <p> Publié entre le {{event.start| date ('d/m/Y')}} à {{ event.start | date('H:i') }}  et le {{ event.end | date ('d/m/Y') }} à {{ event.end | date('H:i') }} </p>
+                    <p> Par : {{event.addedBy.username}} </p>
+                    <p> Lieu : {{ event.location }}</p>
+                </div>
+                <div class="content">
+                    <div class="col text-center">
+                        <a href="#" class="btn btn-outline-danger">Modifier l'événement</a>
+                        <a href="#" class="btn btn-outline-danger">Supprimer l'événement</a>
+
+                    </div>
+                </div>
+            </article>
+            <hr>
+        {% endfor %}
+
+    </section>
+{% endblock %}
+
