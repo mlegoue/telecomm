@@ -12,7 +12,7 @@ class UserFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        for($i = 1; $i<=5; $i++){
+        for($i = 1; $i<=20; $i++){
             $user = new User();
             $user->setUsername("user$i")
                 ->setEmail("user$i@ec-m.fr")
@@ -24,7 +24,7 @@ class UserFixtures extends Fixture
             $display = new Display();
             $display->setName("écran $i")
                     ->setToken("https://telecomm.ginfo.ec-m.fr/display/$i");
-            if($i < 3) {
+            if($i > 10) {
                 $display->setActive(true);
             } else {
                 $display->setActive(false);
