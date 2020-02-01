@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c49ed87-cec7-4295-869d-a75c26da3477" name="Default Changelist" comment="Entity Event User et Display&#10;base.html.twig&#10;Controller et premiere page">
+    <list default="true" id="4c49ed87-cec7-4295-869d-a75c26da3477" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/telecomm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/telecomm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,6 +19,13 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -129,6 +140,10 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/web-server-bundle" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/vendor/adoy/oauth2" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Vfo7IQXKD3OHY5X8Q7HsaCFL9d" />
@@ -138,6 +153,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -152,7 +168,7 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\marie\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -166,7 +182,10 @@
       <workItem from="1578497223473" duration="2315000" />
       <workItem from="1578516919681" duration="1643000" />
       <workItem from="1578779958734" duration="1504000" />
-      <workItem from="1578857854763" duration="242000" />
+      <workItem from="1578857854763" duration="508000" />
+      <workItem from="1578989175577" duration="7560000" />
+      <workItem from="1580572790687" duration="21274000" />
+      <workItem from="1580594741728" duration="50000" />
     </task>
     <task id="LOCAL-00001" summary="Entity Event User et Display&#10;base.html.twig&#10;Controller et premiere page">
       <created>1578517186788</created>
@@ -175,7 +194,35 @@
       <option name="project" value="LOCAL" />
       <updated>1578517186788</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Entity Event User et Display 2">
+      <created>1578858166790</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1578858166790</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Review partie 1">
+      <created>1578990876345</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1578990876345</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Review partie 2">
+      <created>1580593406281</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1580593406281</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Review partie 2">
+      <created>1580593633891</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1580593633891</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +243,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Entity Event User et Display&#10;base.html.twig&#10;Controller et premiere page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Entity Event User et Display&#10;base.html.twig&#10;Controller et premiere page" />
+    <MESSAGE value="Entity Event User et Display 2" />
+    <MESSAGE value="Review partie 1" />
+    <MESSAGE value="Review partie 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Review partie 2" />
   </component>
 </project>
