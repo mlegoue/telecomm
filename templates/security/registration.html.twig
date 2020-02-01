@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'form/bootstrap_3_layout.html.twig' %}
+
+{% block additionnal_body_class %}ls-closed signup-page{% endblock %}
+
+{% block content %}
+    <div class="signup-box">
+        <div class="card">
+            <div class="header bg-red">
+                <h2>Inscription sur le site</h2>
+            </div>
+            {{  form_start(form) }}
+            <div class="body">
+                {{  form_row(form.firstName, {'label':'Nom'}) }}
+                {{  form_row(form.lastName, {'label':'Prénom'}) }}
+                {{  form_row(form.username, {'label':'Nom d\'utilisateur'}) }}
+                {{  form_row(form.email, {'label':'Adresse mail'}) }}
+                {{  form_row(form.password, {'label':'Mot de passe '}) }}
+                {{  form_row(form.confirmpassword, {'label':'Confirmation du mot de passe'}) }}
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-success waves-effect btn-card-footer"><i class="material-icons">save</i><span>Inscription !</span></button>
+            </div>
+        </div>
+        {{  form_end(form) }}
+    </div>
+
+{% endblock %}
+
+

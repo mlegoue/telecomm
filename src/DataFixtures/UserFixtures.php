@@ -19,6 +19,13 @@ class UserFixtures extends Fixture
                 ->setPassword("testtest")
                 ->setFirstName("User$i")
                 ->setLastName("Utilisateur$i");
+            if($i==1) {
+                $user->setRoles(['ROLE_ADMIN']);
+            } else {
+                $user->setRoles(['ROLE_USER']);
+            }
+
+
             $manager->persist($user);
 
             $display = new Display();
