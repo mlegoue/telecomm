@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c49ed87-cec7-4295-869d-a75c26da3477" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/telecomm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/telecomm.iml" afterDir="false" />
+    <list default="true" id="4c49ed87-cec7-4295-869d-a75c26da3477" name="Default Changelist" comment="Review 2 partie 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/registration.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/registration.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +148,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PhpstormProjects/devweb5" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
@@ -185,7 +182,8 @@
       <workItem from="1578857854763" duration="508000" />
       <workItem from="1578989175577" duration="7560000" />
       <workItem from="1580572790687" duration="21274000" />
-      <workItem from="1580594741728" duration="50000" />
+      <workItem from="1580594741728" duration="921000" />
+      <workItem from="1580828971309" duration="4457000" />
     </task>
     <task id="LOCAL-00001" summary="Entity Event User et Display&#10;base.html.twig&#10;Controller et premiere page">
       <created>1578517186788</created>
@@ -222,7 +220,35 @@
       <option name="project" value="LOCAL" />
       <updated>1580593633891</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Review 2 partie 2">
+      <created>1580594931625</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1580594931625</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Review 2 partie 2">
+      <created>1580595022673</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1580595022673</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Review partie 2 My">
+      <created>1580842921796</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1580842921796</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Review partie 2 My">
+      <created>1580843339575</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1580843339575</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +272,8 @@
     <MESSAGE value="Entity Event User et Display 2" />
     <MESSAGE value="Review partie 1" />
     <MESSAGE value="Review partie 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Review partie 2" />
+    <MESSAGE value="Review 2 partie 2" />
+    <MESSAGE value="Review partie 2 My" />
+    <option name="LAST_COMMIT_MESSAGE" value="Review partie 2 My" />
   </component>
 </project>
