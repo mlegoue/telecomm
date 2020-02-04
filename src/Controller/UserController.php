@@ -43,15 +43,14 @@ class UserController extends AbstractController
 
                 $username = $data['username'];
 
-                $user = $this->getDoctrine()->getRepository(User::class)->find($username);
+                $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(['username'=>$username]);
                 if($user === null){ // Création de l'utilisateur s'il n'existe pas
                     $user = new User;
                     $user->setUsername($username);
-                    $user->setPlainPassword(sha1(uniqid()));
-                    $user->setEnabled(true);
+                    $user->setPassword(sha1(uniqid()));
                     $user->setEmail($data['email']);
-                    $user->setNom($data['nom']);
-                    $user->setPrenom($data['prenom']);
+                    $user->setLastName($data['nom']);
+                    $user->setFirstName($data['prenom']);
 
                     $manager->persist($user);
                     $manager->flush();
@@ -69,7 +68,7 @@ class UserController extends AbstractController
             }
 
             // Redirection vers l'accueil
-            return $this->redirectToRoute('/');
+            return $this->redirectToRoute('tele_comm');
         }
 
     }
