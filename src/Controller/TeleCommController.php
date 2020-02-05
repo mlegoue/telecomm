@@ -5,6 +5,11 @@ namespace App\Controller;
 use App\Entity\Event;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
+/**
+* @IsGranted("ROLE_USER")
+*/
 
 class TeleCommController extends AbstractController
 {

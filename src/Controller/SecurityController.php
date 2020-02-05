@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
@@ -31,6 +32,11 @@ class SecurityController extends AbstractController
             $manager->persist($user);
             $manager->flush();
 
+            $this->addFlash(
+                'success',
+                'Your changes were saved!'
+            );
+
             return $this->redirectToRoute('security_login');
         }
 
@@ -42,8 +48,17 @@ class SecurityController extends AbstractController
     /**
      * @Route("/connexion", name="security_login")
      */
-    public function login()  {
-        return $this->render('security/login.html.twig');
+    public function login(AuthenticationUtils $authenticationUtils)  {
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('security/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error'         => $error,
+        ]);
     }
 
     /**

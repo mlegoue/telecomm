@@ -11,6 +11,9 @@
                 <h2>Connexion</h2>
             </div>
             <div class="body">
+                {% if error %}
+                    <div class="alert alert-warning">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
                 <form action="{{ path('security_login') }}" method="post">
                     <div class="form-group">
                         <div class="form-line">
