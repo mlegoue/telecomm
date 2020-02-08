@@ -34,8 +34,8 @@
                 <a href="javascript:void(0);" class="bars"></a>
             {% endif %}
 
-            <a class="navbar-brand" href="/home">
-                Télé'comm
+            <a class="navbar-brand" href="{{ path('tele_comm') }}">
+                Télécomm'
             </a>
 
         </div>
@@ -63,16 +63,28 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">Menu</li>
-                <li {% if app.request.pathInfo starts with "/page2" %}class="active"{% endif %}>
-                    <a href="/page2" id="link_add">
+                <li {% if app.request.pathInfo starts with "/new" %}class="active"{% endif %}>
+                    <a href="{{ path('event_create') }}" id="link_add">
                         <i class="material-icons">add</i> <span>Créer un événement</span>
                     </a>
                 </li>
-                <li {% if app.request.pathInfo starts with "/page2" %}class="active"{% endif %}>
-                    <a href="/page2" id="event_added">
-                        <i class="material-icons">event</i> <span>Voir les événements</span>
+                <li {% if app.request.pathInfo starts with "/home" %}class="active"{% endif %}>
+                    <a href="{{ path('tele_comm') }}" id="event_added">
+                        <i class="material-icons">event</i> <span>Voir mes événements</span>
                     </a>
                 </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                <li {% if app.request.pathInfo starts with "/admin" %}class="active"{% endif %}>
+                    <a href="{{path('event_admin')}}" id="event_added">
+                        <i class="material-icons">vpn_key</i> <span>Modération</span>
+                    </a>
+                </li>
+                <li {% if app.request.pathInfo starts with "/display" %}class="active"{% endif %}>
+                    <a href="{{path('display_admin')}}" id="event_added">
+                        <i class="material-icons">screen_share</i> <span>Affichage sur les écrans</span>
+                    </a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </aside>
@@ -87,7 +99,7 @@
 
 <div class="footer">
     <div class="footer-content">
-        <b>GInfo</b> 2019 - <a href="https://assos.centrale-marseille.fr/ginfo">GInfo</a> -
+        <b>Télécomm'</b> 2020 - <a href="https://assos.centrale-marseille.fr/ginfo">GInfo</a> -
         <a href="">Mentions légales</a> - <a href="">Données personnelles</a> - <a href="https://wiki.centrale-marseille.fr/ginfo/">Documentation</a>
     </div>
 </div>

@@ -20,6 +20,10 @@ class UserController extends AbstractController
      */
     public function index(Request $request, TokenStorageInterface $tokenStorage, SessionInterface $session, EventDispatcherInterface $dispatcher, ObjectManager $manager)
     {
+        if($this->isGranted('ROLE_USER')){
+            return $this->redirectToRoute('tele_comm');
+        }
+
         $id = $this->getParameter('oauth_id');
         $secret = $this->getParameter('oauth_secret');
         $base = $this->getParameter('oauth_base');

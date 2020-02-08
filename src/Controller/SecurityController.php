@@ -17,6 +17,10 @@ class SecurityController extends AbstractController
      * @Route("/inscription", name="security_registration")
      */
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder) {
+        if($this->isGranted('ROLE_USER')){
+            return $this->redirectToRoute('tele_comm');
+        }
+
         $user = new User();
 
         $form = $this->createForm(RegistrationType::class,$user);
@@ -34,7 +38,7 @@ class SecurityController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'Your changes were saved!'
+                'Votre inscription a bien été enregistré'
             );
 
             return $this->redirectToRoute('security_login');
@@ -49,6 +53,11 @@ class SecurityController extends AbstractController
      * @Route("/connexion", name="security_login")
      */
     public function login(AuthenticationUtils $authenticationUtils)  {
+
+        if($this->isGranted('ROLE_USER')){
+            return $this->redirectToRoute('tele_comm');
+        }
+
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
 
