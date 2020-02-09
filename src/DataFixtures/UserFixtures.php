@@ -7,16 +7,23 @@ use App\Entity\Event;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
     public function load(ObjectManager $manager)
     {
         for($i = 1; $i<=20; $i++){
             $user = new User();
             $user->setUsername("user$i")
                 ->setEmail("user$i@ec-m.fr")
-                ->setPassword("testtest")
                 ->setFirstName("User$i")
                 ->setLastName("Utilisateur$i");
             if($i==1) {
@@ -24,6 +31,9 @@ class UserFixtures extends Fixture
             } else {
                 $user->setRoles(['ROLE_USER']);
             }
+
+            $password = $this->encoder->encodePassword($user, 'testtest');
+            $user->setPassword($password);
 
 
             $manager->persist($user);

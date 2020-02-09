@@ -44,7 +44,7 @@ class TeleCommController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete}", name="event_delete")
+     * @Route("/{id}/delete", name="event_delete")
      */
     public function delete(Event $event,ObjectManager $manager)
     {
