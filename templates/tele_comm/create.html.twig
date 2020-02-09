@@ -1,0 +1,53 @@
+{%  extends 'base.html.twig' %}
+
+{% form_theme formEvent 'form/bootstrap_3_layout.html.twig' %}
+
+{% block page_css %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css">
+{%  endblock %}
+
+{%  block content %}
+
+    <div class="card">
+        <div class="header bg-red">
+            <h2>{% if editMode %}
+                    Modification d'un événement
+                {% else %}
+                    Création d'un événement
+                {% endif %}</h2>
+        </div>
+        {{  form_start(formEvent) }}
+        <div class="body">
+            {{  form_start(formEvent) }}
+
+            {{  form_row(formEvent.name, {'label':'Nom de l\'événement'} ) }}
+            {{  form_row(formEvent.location, {'label':'Lieu de l\'événement'}) }}
+            <span class="grey">Date de début: </span> {{  form_row(formEvent.start) }}
+            <span class="grey">Date de fin :</span>{{  form_row(formEvent.end) }}
+
+
+
+
+        </div>
+
+
+        <div class="card-footer">
+            <button type = "submit" class="btn btn-success">
+                {% if editMode %}
+                    Enregistrer
+                {% else %}
+                    Ajouter l'événement
+                {% endif %}
+            </button>
+        </div>
+
+    </div>
+    {{ form_end(formEvent) }}
+
+{%  endblock %}
+
+{% block page_js %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+
+
+{% endblock %}
