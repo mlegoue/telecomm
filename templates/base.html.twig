@@ -34,7 +34,7 @@
                 <a href="javascript:void(0);" class="bars"></a>
             {% endif %}
 
-            <a class="navbar-brand" href="{{ path('tele_comm') }}">
+            <a class="navbar-brand" href="{{ path('home') }}">
                 Télécomm'
             </a>
 
@@ -69,7 +69,7 @@
                     </a>
                 </li>
                 <li {% if app.request.pathInfo starts with "/home" %}class="active"{% endif %}>
-                    <a href="{{ path('tele_comm') }}" id="event_added">
+                    <a href="{{ path('home') }}" id="event_added">
                         <i class="material-icons">event</i> <span>Voir mes événements</span>
                     </a>
                 </li>

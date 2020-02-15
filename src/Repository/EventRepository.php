@@ -19,6 +19,16 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
+
+    public function findUser($user)
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.addedBy = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ;
+    }
+
     // /**
     //  * @return Event[] Returns an array of Event objects
     //  */

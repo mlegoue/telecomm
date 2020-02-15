@@ -48,7 +48,7 @@ class UserFixtures extends Fixture
             }
             $manager->persist($display);
 
-            for($j = 1; $j<=3; $j++){
+            for($j = 1; $j<=20; $j++){
                 $event = new Event();
                 $event->setName("Evénement $j")
                       ->setLocation("Amphi 1")
