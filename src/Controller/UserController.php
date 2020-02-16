@@ -75,7 +75,7 @@ class UserController extends AbstractController
             }
 
             // Redirection vers l'accueil
-            return $this->redirectToRoute('tele_comm');
+            return $this->redirectToRoute('home');
         }
 
     }
