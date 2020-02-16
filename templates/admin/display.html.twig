@@ -30,7 +30,7 @@
                             <div class="col text-center">
                                 <a href="{{ path('event_show',{'id':event.id}) }}" class="btn btn-success">Valider l'événement</a>
                                 <a href="{{ path('event_edit',{'id':event.id}) }}" class="btn btn-primary">Voir l'événement</a>
-                                <a href="#" class="btn btn-danger">Supprimer l'événement</a>
+                                <a href="{{ path('event_delete',{'id':event.id}) }}" class="btn btn-danger">Supprimer l'événement</a>
 
                             </div>
                         </div>
