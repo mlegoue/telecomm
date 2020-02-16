@@ -45,3 +45,6 @@ form > div >.btn {
     padding : 6px 6px;
 }
 
+#app-notifs{
+    display: none;
+}
