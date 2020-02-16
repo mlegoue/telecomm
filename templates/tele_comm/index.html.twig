@@ -19,9 +19,9 @@
                         <span class="badge bg-orange">En cours de vérification</span>
                     {% endif %}
                     <div class="metadata">
-                        <p> Evénement entre le {{event.start| date ('d/m/Y')}} à {{ event.start | date('H:i') }}  et le {{ event.end | date ('d/m/Y') }} à {{ event.end | date('H:i') }} </p>
-                        <p> Publié par : {{event.addedBy.username}} </p>
-                        <p> Lieu : {{ event.location }}</p>
+                        <p> <strong>Date :</strong> entre le {{event.start| date ('d/m/Y')}} à {{ event.start | date('H:i') }}  et le {{ event.end | date ('d/m/Y') }} à {{ event.end | date('H:i') }} </p>
+                        <p> <strong>Publié par :</strong> {{event.addedBy.fullName}} </p>
+                        <p> <strong>Lieu :</strong> {{ event.location }}</p>
                     </div>
                     <div class="content">
                         <div class="col text-center">
@@ -30,7 +30,7 @@
                                 <a href="{{ path('event_edit',{'id':event.id}) }}" class="btn btn-primary">Modifier l'événement</a>
                             {% endif %}
                             {% if is_granted('DELETE', event) %}
-                                <a href="#" class="btn btn-danger">Supprimer l'événement</a>
+                                <a href="{{ path('event_delete',{'id':event.id}) }}" class="btn btn-danger">Supprimer l'événement</a>
                             {% endif %}
                         </div>
                     </div>

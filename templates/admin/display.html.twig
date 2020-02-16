@@ -17,7 +17,9 @@
                         {% if (event.allDisplays == true) %}
                             <span class="badge bg-green">Tous les écrans</span>
                         {% else %}
-                            <span class="badge bg-orange">Certains écrans</span>
+                            {% for display in event.displays %}
+                                <span class="badge bg-orange">{{ display.name }}</span>
+                            {% endfor %}
                         {% endif %}
                         <div class="metadata">
                             <p> Publié entre le {{event.start| date ('d/m/Y')}} à {{ event.start | date('H:i') }}  et le {{ event.end | date ('d/m/Y') }} à {{ event.end | date('H:i') }} </p>

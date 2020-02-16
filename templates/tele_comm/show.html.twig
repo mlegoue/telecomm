@@ -19,7 +19,7 @@
                 {% endif %}
                 <div class="metadata">
                     <p> Publié entre le {{event.start| date ('d/m/Y')}} à {{ event.start | date('H:i') }}  et le {{ event.end | date ('d/m/Y') }} à {{ event.end | date('H:i') }} </p>
-                    <p> Par : {{event.addedBy.username}} </p>
+                    <p> Par : {{event.addedBy.fullName}} </p>
                     <p> Lieu : {{ event.location }}</p>
                 </div>
                 <div class="content">
@@ -28,7 +28,7 @@
                             <a href="{{ path('event_edit',{'id':event.id}) }}" class="btn btn-primary">Modifier l'événement</a>
                         {% endif %}
                         {% if is_granted('DELETE', event) %}
-                            <a href="#" class="btn btn-danger">Supprimer l'événement</a>
+                            <a href="{{ path('event_delete',{'id':event.id}) }}" class="btn btn-danger">Supprimer l'événement</a>
                         {% endif %}
 
 
