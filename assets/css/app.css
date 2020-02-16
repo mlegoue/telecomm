@@ -35,4 +35,10 @@ body {
     text-align: center;
 }
 
+.navbar-nav > li > span.badge
+{
+    padding: 7px;
+    margin-top: 20px;
+}
+
 
