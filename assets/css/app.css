@@ -48,3 +48,31 @@ form > div >.btn {
 #app-notifs{
     display: none;
 }
+
+.btn-admin{
+    color:green;
+}
+
+.btn-ban{
+    color:red;
+}
+
+.btn-name{
+    color:orange;
+}
+
+.fa-user-shield{
+    font-size:15px;
+    vertical-align:middle;
+}
+
+.logo-site {
+    width: 45px;
+    height:45px;
+    margin-right: 20px;
+    float: left;
+    margin-top:-15px;
+@media (max-width: 950px) {
+    margin-left: 25px;
+}
+}

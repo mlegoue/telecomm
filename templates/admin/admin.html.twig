@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block content %}
+    <h1>Ajouter des administrateurs</h1>
+
+
+    <div>
+        <div class="card">
+            <div class="body table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th> Nom </th>
+                        <th> Prénom </th>
+                        <th>Role</th>
+                        <th> Action </th>
+                    </tr>
+
+
+                    {%  for user in users %}
+                        {% if user != userOnline %}
+                            <tr>
+                                <td>{{ user.firstName }}</td>
+                                <td>{{ user.lastName }}</td>
+                                <td>{% if user.roles[0] == "ROLE_ADMIN"%}
+                                            <i data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Administrateur" class="material-icons btn-admin">verified_user</i>
+                                    {% else %}
+                                        {% if user.roles[0] == "ROLE_MODERATOR"%}
+                                            <i data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Modérateur" class="material-icons btn-admin">event_available</i>
+                                        {% endif %}
+                                    {% endif %}
+                                </td>
+                                <td>{% if user.roles[0] == "ROLE_ADMIN"%}
+                                        <a href="{{ path('name_moderator',{'id':user.id}) }}">
+                                            <i  data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Rétrograder en modérateur" class="material-icons btn-name">event_note</i>
+                                        </a>
+                                        <a href="{{ path('block_admin',{'id':user.id}) }}">
+                                            <i  data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Destituer" class="material-icons btn-ban">block</i>
+                                        </a>
+                                                                        {% else %}
+                                        <a href="{{ path('name_admin',{'id':user.id}) }}">
+                                            <i  data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Nommer administrateur" class="material-icons btn-name" >verified_user</i>
+                                        </a>
+                                        {% if user.roles[0] == "ROLE_MODERATOR"%}
+                                            <a href="{{ path('block_moderator',{'id':user.id}) }}">
+                                                <i  data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Destituer" class="material-icons btn-ban">event_busy</i>
+                                            </a>
+                                        {% else %}
+                                            <a href="{{ path('name_moderator',{'id':user.id}) }}">
+                                                <i  data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Nommer modérateur" class="material-icons btn-name">event_note</i>
+                                            </a>
+                                        {% endif %}
+
+
+
+                                    {% endif %}</td>
+                            </tr>
+                        {% endif %}
+
+                    {% endfor %}
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}

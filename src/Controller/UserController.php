@@ -19,7 +19,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/login", name="user_login")
+     * @Route("/login/my", name="user_login")
      */
     public function index(Request $request, TokenStorageInterface $tokenStorage, SessionInterface $session, EventDispatcherInterface $dispatcher, ObjectManager $manager)
     {
@@ -117,7 +117,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/connection", name="security_login")
+     * @Route("/login", name="security_login")
      */
     public function login(AuthenticationUtils $authenticationUtils)  {
 
@@ -138,7 +138,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/deconnexion", name="security_logout")
+     * @Route("/logout", name="security_logout")
      */
     public function logout()  {}
 }

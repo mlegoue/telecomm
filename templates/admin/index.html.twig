@@ -1,46 +1,99 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TeleCommController!{% endblock %}
-
-{% block stylesheets %}
-{% endblock %}
 
 {% block content %}
-    <section>
-        {% for event in events %}
-            {% if event.online == false %}
-            <div class = "card">
-                <div class="header bg-red">
-                    <h2>{{event.name}}</h2>
+
+    <h2>Administration du site</h2>
+
+    <a href="{{path('event_admin')}}">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="info-box bg-pink hover-expand-effect">
+                <div class="icon">
+                    <i class="material-icons">playlist_add_check</i>
                 </div>
-                <div class="body">
-                    {% if (event.online == 1) %}
-                        <span class="badge bg-green">Accepté</span>
-                    {% else %}
-                        <span class="badge bg-orange">En cours de vérification</span>
-                    {% endif %}
-                    <div class="metadata">
-                        <p> Publié entre le {{event.start| date ('d/m/Y')}} à {{ event.start | date('H:i') }}  et le {{ event.end | date ('d/m/Y') }} à {{ event.end | date('H:i') }} </p>
-                        <p> Par : {{event.addedBy.username}} </p>
-                        <p> Lieu : {{ event.location }}</p>
+                <div class="content">
+                    <div class="text">Événements en modération</div>
+                    <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">{{ nbEvnts }}</div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="{{path('online_admin')}}">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="info-box bg-purple hover-expand-effect">
+                <div class="icon">
+                    <i class="material-icons">event_available</i>
+                </div>
+                <div class="content">
+                    <div class="text">Événements en ligne</div>
+                    <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">{{ nbEvntsOnline }}</div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="info-box bg-light-blue hover-expand-effect">
+                <div class="icon">
+                    <i class="material-icons">screen_share</i>
+                </div>
+                <div class="content">
+                    <div class="text">Écrans allumés</div>
+                    <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">{{ nbDisplayOn }}</div>
+                </div>
+            </div>
+        </div>
+
+        <a href="{{path('display_admin')}}">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="info-box bg-light-green hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons">personal_video</i>
                     </div>
                     <div class="content">
-                        <div class="col text-center">
-                            <a href="{{ path('event_validate',{'id':event.id}) }}" class="btn btn-success">Valider l'événement</a>
-                            <a href="{{ path('event_edit',{'id':event.id}) }}" class="btn btn-primary">Voir l'événement</a>
-                            <a href="{{ path('event_delete',{'id':event.id}) }}" class="btn btn-danger">Supprimer l'événement</a>
-
-                        </div>
+                        <div class="text">Écrans</div>
+                        <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">{{ nbDisplay }}</div>
                     </div>
                 </div>
-
             </div>
+        </a>
+    {% endif %}
 
-                <hr>
-            {% endif %}
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="info-box bg-orange hover-expand-effect">
+            <div class="icon">
+                <i class="material-icons">people</i>
+            </div>
+            <div class="content">
+                <div class="text">Utilisateurs inscrits</div>
+                <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">{{ nbUsers }}</div>
+            </div>
+        </div>
+    </div>
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{path('list_admin')}}">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="info-box bg-red hover-expand-effect">
+                    <div class="icon">
+                        <i class="material-icons">verified_user</i>
+                    </div>
+                    <div class="content">
+                        <div class="text">Administrateurs</div>
+                        <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20">{{ nbAdmin }}</div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {% endif %}
 
 
-        {% endfor %}
 
-    </section>
+
+
+
+
 {% endblock %}

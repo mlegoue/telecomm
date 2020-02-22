@@ -24,10 +24,10 @@
                 </div>
                 <div class="content">
                     <div class="col text-center">
-                        {% if is_granted('EDIT', event) %}
+                        {% if is_granted('EVENT_EDIT', event) %}
                             <a href="{{ path('event_edit',{'id':event.id}) }}" class="btn btn-primary">Modifier l'événement</a>
                         {% endif %}
-                        {% if is_granted('DELETE', event) %}
+                        {% if is_granted('EVENT_DELETE', event) %}
                             <a href="{{ path('event_delete',{'id':event.id}) }}" class="btn btn-danger">Supprimer l'événement</a>
                         {% endif %}
 

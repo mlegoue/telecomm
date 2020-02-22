@@ -5,6 +5,9 @@
 
 
 {%  block content %}
+    <div class="alert alert-warning">
+        <strong>Pas si vite !</strong> Les évenements sont soumis à la modération, assures toi d'avoir lu le réglement. 😉
+    </div>
 
     <div class="card">
         <div class="header bg-red">
@@ -14,6 +17,7 @@
                     Création d'un événement
                 {% endif %}</h2>
         </div>
+
         {{  form_start(formEvent) }}
         <div class="body">
             {{  form_start(formEvent) }}

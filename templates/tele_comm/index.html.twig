@@ -1,14 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TeleCommController!{% endblock %}
-
-{% block stylesheets %}
-{% endblock %}
+{% form_theme form 'form/bootstrap_3_layout.html.twig' %}
 
 {% block content %}
+    <div class="card">
+        <div class="header bg-red">
+            <h2>Rechercher un événement</h2>
+        </div>
+        <div class="body">
+            {{ form_start(form) }}
+            <div class="form-row">
+                <div class = "col">
+                    {{ form_row(form.isOnline) }}
+                </div>
+                <div class = "col">
+                    <button class="btn btn-primary">Rechercher</button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
     <section>
         {% for event in events %}
-            <div class = "card">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class = "card ">
                 <div class="header bg-red">
                     <h2>{{event.name}}</h2>
                 </div>
@@ -26,10 +42,10 @@
                     <div class="content">
                         <div class="col text-center">
                             <a href="{{ path('event_show',{'id':event.id}) }}" class="btn btn-success">Voir l'événement</a>
-                            {% if is_granted('EDIT', event) %}
+                            {% if is_granted('EVENT_EDIT', event) %}
                                 <a href="{{ path('event_edit',{'id':event.id}) }}" class="btn btn-primary">Modifier l'événement</a>
                             {% endif %}
-                            {% if is_granted('DELETE', event) %}
+                            {% if is_granted('EVENT_DELETE', event) %}
                                 <a href="{{ path('event_delete',{'id':event.id}) }}" class="btn btn-danger">Supprimer l'événement</a>
                             {% endif %}
                         </div>
@@ -37,8 +53,8 @@
                 </div>
 
             </div>
+        </div>
 
-            <hr>
         {% endfor %}
 
     </section>

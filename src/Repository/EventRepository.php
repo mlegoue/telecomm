@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Event;
+use App\Entity\Search;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -20,13 +21,19 @@ class EventRepository extends ServiceEntityRepository
     }
 
 
-    public function findUser($user)
+    public function findUser($user, Search $search)
     {
-        return $this->createQueryBuilder('e')
+        $query = $this->createQueryBuilder('e')
             ->andWhere('e.addedBy = :user')
             ->setParameter('user', $user)
-            ->getQuery()
             ;
+
+        if($search->getIsOnline()){
+            $query = $query->andWhere('e.online = :isOnline')
+                        -> setParameter('isOnline', ($search->getIsOnline() == 1));
+         }
+
+        return $query -> getQuery();
     }
 
     // /**

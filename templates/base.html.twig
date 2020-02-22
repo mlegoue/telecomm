@@ -34,9 +34,12 @@
                 <a href="javascript:void(0);" class="bars"></a>
             {% endif %}
 
+
             <a class="navbar-brand" href="{{ path('home') }}">
+                <img class="logo-site" src="https://avatars2.githubusercontent.com/u/12857749?s=400&v=4" width=30 height=30 alt="">
                 Télécomm'
             </a>
+
 
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -78,15 +81,10 @@
                         <i class="material-icons">event</i> <span>Voir mes événements</span>
                     </a>
                 </li>
-                {% if is_granted('ROLE_ADMIN') %}
+                {% if is_granted('ROLE_MODERATOR') %}
                 <li {% if app.request.pathInfo starts with "/admin" %}class="active"{% endif %}>
-                    <a href="{{path('event_admin')}}" id="event_added">
+                    <a href="{{path('admin')}}" id="event_added">
                         <i class="material-icons">vpn_key</i> <span>Modération</span>
-                    </a>
-                </li>
-                <li {% if app.request.pathInfo starts with "/display" %}class="active"{% endif %}>
-                    <a href="{{path('display_admin')}}" id="event_added">
-                        <i class="material-icons">screen_share</i> <span>Affichage sur les écrans</span>
                     </a>
                 </li>
                 {% endif %}
@@ -123,8 +121,7 @@
 <script src="{{ asset('build/runtime.js') }}"></script>
 
 
-{% block page_js %}
-{% endblock %}
+
 </body>
 
 </html>

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<section>
+    {% for event in events %}
+        {% if event.online == false %}
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+            <div class = "card">
+                    <div class="header bg-red">
+                        <h2>{{event.name}}</h2>
+                    </div>
+                    <div class="body">
+                        {% if (event.online == 1) %}
+                            <span class="badge bg-green">Accepté</span>
+                        {% else %}
+                            <span class="badge bg-orange">En cours de vérification</span>
+                        {% endif %}
+                        <div class="metadata">
+                            <p> Publié entre le {{event.start| date ('d/m/Y')}} à {{ event.start | date('H:i') }}  et le {{ event.end | date ('d/m/Y') }} à {{ event.end | date('H:i') }} </p>
+                            <p> Par : {{event.addedBy.username}} </p>
+                            <p> Lieu : {{ event.location }}</p>
+                        </div>
+                        <div class="content">
+                            <div class="col text-center">
+                                <a href="{{ path('event_validate',{'id':event.id}) }}" class="btn btn-success">Valider</a>
+                                <a href="{{ path('event_show',{'id':event.id}) }}" class="btn btn-primary">Voir</a>
+                                <a href="{{ path('event_edit',{'id':event.id}) }}" class="btn btn-warning">Modifier</a>
+                                <a href="{{ path('event_delete',{'id':event.id}) }}" class="btn btn-danger">Supprimer</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        {% endif %}
+
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\Search;
 use App\Form\EventType;
+use App\Form\SearchType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,30 +37,36 @@ class EventController extends AbstractController
      */
     public function index(PaginatorInterface $paginator, Request $request)
     {
+        $search = new Search();
+        $form = $this->createForm(SearchType::class, $search);
+        $form->handleRequest($request);
+
         $user = $this->getUser();
 
         $events = $this->getDoctrine()
             ->getRepository(Event::class)
-            ->findUser($user);
+            ->findUser($user, $search);
 
         $pagination = $paginator->paginate(
             $events, /* query NOT result */
             $request->query->getInt('page', 1), /*page number*/
-            5 /*limit per page*/
+            6 /*limit per page*/
         );
 
         return $this->render('tele_comm/index.html.twig',  [
-            'events' => $pagination
+            'events' => $pagination,
+            'form' => $form->createView(),
+            'search' =>$search
         ]);
     }
 
     /**
      * @Route("event/{id}/delete", name="event_delete")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('EVENT_DELETE', event)")
      */
+
     public function delete(Event $event,ObjectManager $manager)
     {
-        $this->denyAccessUnlessGranted('DELETE',$event);
         $manager->remove($event);
         $manager->flush();
         $this->addFlash(
@@ -82,7 +90,7 @@ class EventController extends AbstractController
             $event = new Event();
         }
         else {
-            $this->denyAccessUnlessGranted('EDIT',$event);
+            $this->denyAccessUnlessGranted('EVENT_EDIT',$event);
         }
 
         $form = $this->createForm(EventType::class, $event);
