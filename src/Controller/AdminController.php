@@ -62,7 +62,7 @@ class AdminController extends AbstractController
     public function blockadmin(User $user,ObjectManager $manager)
     {
         $useronline = $this->getUser();
-        if (($user->getRoles()) == ["ROLE_ADMIN", 'ROLE_USER']){
+        if (($user->getRoles()[0]) == "ROLE_ADMIN"){
             if ($user->getId() == $useronline->getId()){
                 $this->addFlash(
                     'warning',
@@ -110,16 +110,22 @@ class AdminController extends AbstractController
 
     public function namemoderator(User $user,ObjectManager $manager)
     {
+        $useronline = $this->getUser();
+        if ($user->getId() != $useronline->getId()) {
+            $user->setRoles(["ROLE_MODERATOR"]);
 
-        $user -> setRoles(["ROLE_MODERATOR"]);
-
-        $this->addFlash(
-            'success',
-            ($user->getFullName()) . ' est maintenant modérateur.'
-        );
-
-        $manager->persist($user);
-        $manager->flush();
+            $this->addFlash(
+                'success',
+                ($user->getFullName()) . ' est maintenant modérateur.'
+            );
+            $manager->persist($user);
+            $manager->flush();
+        }else{
+            $this->addFlash(
+                'warning',
+                'Vous ne pouvez pas vous rétrograder vous-même.'
+            );
+        }
 
 
         return $this->redirectToRoute('list_admin');
@@ -132,7 +138,7 @@ class AdminController extends AbstractController
 
     public function blockmoderator(User $user,ObjectManager $manager)
     {
-        if ($user->getRoles() == ["ROLE_MODERATOR",'ROLE_USER']){
+        if ($user->getRoles()[0] == "ROLE_MODERATOR"){
             $user -> setRoles(["ROLE_USER"]);
             $this->addFlash(
                 'warning',
